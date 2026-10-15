@@ -15,6 +15,10 @@ main{padding:12px;max-width:640px;margin:auto}.stop{background:#fff;border-radiu
 .btn{display:block;text-align:center;background:#0a7aff;color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:14px;border-radius:12px;margin-top:8px}
 .btn.alt{background:#4a4a4a}.note{background:#fff7d6;border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.5;margin-bottom:14px}
 .n{display:inline-block;background:#7a2e1f;color:#fff;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;font-size:14px;margin-right:6px}
+.day{background:#fff;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 8px #0001;overflow:hidden;scroll-margin-top:60px}
+.day .dh{background:#efe6d6;padding:10px 16px;display:flex;justify-content:space-between;align-items:baseline}.day .dh b{font-size:17px;color:#7a2e1f}.day .dh span{font-size:14px;color:#555}
+.day.today{outline:3px solid #0a7aff}.day.today .dh{background:#0a7aff}.day.today .dh b,.day.today .dh span{color:#fff}
+.day ul{list-style:none;margin:0;padding:10px 16px 14px}.day li{padding:5px 0;font-size:15px;line-height:1.45}.open{color:#b25b00;font-weight:600}.ok{color:#1d7a35;font-weight:600}.past{opacity:.6}
 footer{font-size:12px;color:#777;padding:0 16px 30px;text-align:center}
 </style></head><body>
 <header><h1 id="title"></h1><p id="sub"></p></header><nav id="nav"></nav><main id="main"></main>
@@ -47,12 +51,44 @@ const TRIPS={salzburg:{
  {name:'Terug naar het Hampton by Hilton',img:null,time:'ca. 20 min met de bus',leg:'Augustiner Bräu → hotel (OV)',url:am('Augustiner%20Br%C3%A4u%20M%C3%BClln%20Salzburg',H,'r'),
   text:'Met je dagkaart neem je de bus terug naar je hotel in Liefering.'}
  ]}};
+
+const D=(d,city,items)=>({d,city,items});
+const SCHEMA=[
+D('2026-10-14','Amsterdam → nachttrein',['🚆 <b>Nightjet NJ 40421</b> richting Wenen · rijtuig 431, bed 91, Single (incl. ontbijt)','🎫 Boeking 0107 1036 0603 5943 · ticket 2870 4188 2514 6932','🌙 Nacht in de trein']),
+D('2026-10-15','Salzburg',['🚆 Uitstappen in Salzburg 06:46 (NJ 40421)','🏨 Hampton by Hilton Salzburg Messe <span class="ok">geboekt</span>','⭐ Wandelroute Salzburg → zie tab Salzburg']),
+D('2026-10-16','Zürich',['🏨 Moxy Zurich <span class="ok">geboekt</span>']),
+D('2026-10-17','Luzern → Interlaken',['🚆 <b>PE 2920</b> Luzern → Interlaken · rijtuig 7, stoel 320 · ref PYN6JY']),
+D('2026-10-18','Milaan → Napels',['🚆 <b>Frecciarossa FR 9657</b> Milano → Napoli · PNR E253KN']),
+D('2026-10-19','Salerno / Amalfi',['⭐ Salerno en Amalfikust','🏨 Moxy Pompeii (19–21 okt) <span class="ok">geboekt</span>']),
+D('2026-10-20','Pompeii / Amalfikust',['🏨 Moxy Pompeii','📝 <span class="open">Herinnering: Sicilië-hotels boeken</span>']),
+D('2026-10-21','Naar Sicilië',['🚆 <b>Intercity Notte ICN 1955</b>','🏨 <span class="open">Hotel nog te boeken (last minute)</span>']),
+D('2026-10-22','Sicilië (rondreis)',['🏨 <span class="open">Hotel nog te boeken</span>']),
+D('2026-10-23','Sicilië (rondreis)',['🏨 <span class="open">Hotel nog te boeken</span>']),
+D('2026-10-24','Sicilië (rondreis)',['🏨 <span class="open">Hotel nog te boeken</span>','📝 <span class="open">Besluit Rome → Bolzano</span>']),
+D('2026-10-25','Sicilië (rondreis)',['🏨 <span class="open">Hotel nog te boeken</span>']),
+D('2026-10-26','Sicilië (rondreis)',['🏨 <span class="open">Hotel nog te boeken</span>']),
+D('2026-10-27','Palermo → Rome',['🚆 <b>Intercity Notte ICN 95074</b> Palermo → Rome','🌙 Nacht in de trein']),
+D('2026-10-28','Rome',['🎫 Colosseum 09:15','🏨 Airbnb Rome (28–29 okt) <span class="ok">geboekt</span>']),
+D('2026-10-29','Rome',['🎫 Vaticaanse Musea 13:00','🏨 Airbnb Rome']),
+D('2026-10-30','Rome → Bolzano',['🚆 <span class="open">Trein Rome → Bolzano: open</span>','🏨 <span class="open">Overnachting nog te boeken/open</span>']),
+D('2026-10-31','Dolomieten / Bolzano',['🏨 <span class="open">Overnachting nog te boeken/open</span>']),
+D('2026-11-01','Innsbruck → nachttrein',['🚆 <b>Nightjet</b> Innsbruck 20:46 → Amsterdam · couchette','🎫 Boeking 1639 6741 5140 1262','🌙 Nacht in de trein']),
+D('2026-11-02','Amsterdam',['🚆 Aankomst Amsterdam 09:59','🏠 Thuis in Koog aan de Zaan'])];
+const WD=['zo','ma','di','wo','do','vr','za'],MO=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+const tz=new Date(),today=`${tz.getFullYear()}-${String(tz.getMonth()+1).padStart(2,'0')}-${String(tz.getDate()).padStart(2,'0')}`;
+const view=new URLSearchParams(location.search).get('view');
 const trip=TRIPS[new URLSearchParams(location.search).get('stad')||'salzburg'];
-document.title='Reisgids – '+trip.title;title.textContent=trip.title;sub.textContent=trip.sub;
-nav.innerHTML=trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
+if(view==='schema'){document.title='Reisschema';title.textContent='📅 Reisschema Interrail';sub.textContent='14 okt – 2 nov 2026 · 1e klas Global Pass';
+nav.innerHTML='<a href="./">🏰 Salzburg</a>'+SCHEMA.map(x=>`<a href="#d${x.d}">${+x.d.slice(8)} ${MO[+x.d.slice(5,7)-1]}</a>`).join('');
+main.innerHTML=SCHEMA.map(x=>{const dt=new Date(x.d+'T12:00');const c=x.d===today?'today':x.d<today?'past':'';
+return `<section class="day ${c}" id="d${x.d}"><div class="dh"><b>${WD[dt.getDay()]} ${dt.getDate()} ${MO[dt.getMonth()]}${c==='today'?' · vandaag':''}</b><span>${x.city}</span></div><ul>${x.items.map(i=>`<li>${i}</li>`).join('')}</ul></section>`}).join('');
+const t=document.getElementById('d'+today);if(t)setTimeout(()=>t.scrollIntoView({block:'start'}),50);
+}else{document.title='Reisgids – '+trip.title;title.textContent=trip.title;sub.textContent=trip.sub;
+nav.innerHTML='<a href="?view=schema">📅 Reisschema</a>'+trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
 main.innerHTML=`<div class="note">${trip.note}</div><a class="btn alt" href="${trip.route}">🗺️ Hele route op Google Maps</a><br>`+
  trip.stops.map((s,i)=>`<section class="stop" id="s${i+1}">${s.img?`<img src="${s.img}" alt="${s.name}" loading="lazy">`:''}<div class="c">
  <h2><span class="n">${i+1}</span><b>${s.name}</b></h2><div class="t">🚶 ${s.leg} · ${s.time}</div><p>${s.text}</p>
  <a class="btn" href="${s.url}">📍 Navigeer in Apple Maps</a></div></section>`).join('');
+}
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>
