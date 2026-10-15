@@ -1,9 +1,9 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Salzburg">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Reisgids">
 <meta name="theme-color" content="#7a2e1f"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Reisgids Salzburg</title>
+<title>Reisgids</title>
 <style>
 body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#f6f1e7;color:#2b2420;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
 header{background:#7a2e1f;color:#fff;padding:22px 18px 16px}header h1{margin:0;font-size:26px}header p{margin:6px 0 0;opacity:.9;font-size:15px}
@@ -27,7 +27,26 @@ footer{font-size:12px;color:#777;padding:0 16px 30px;text-align:center}
 // Reisgids-data: voeg nieuwe steden toe aan TRIPS en kies via ?stad=...
 const am=(s,d,f)=>`https://maps.apple.com/?daddr=${d}&dirflg=${f}`;
 const H='Schmiedingerstra%C3%9Fe%2046%20Salzburg';
-const TRIPS={salzburg:{
+const TRIPS={zurich:{
+ title:'Wandelroute Zürich',sub:'Start en eind: Moxy Zurich (Badenerstrasse 537, Altstetten) · architectuur, uitzichten, de Limmat en het meer',
+ route:'https://www.google.com/maps/dir/Moxy+Zurich,+Badenerstrasse+537/Paradeplatz+Z%C3%BCrich/Lindenhof+Z%C3%BCrich/Fraum%C3%BCnster+Z%C3%BCrich/M%C3%BCnsterbr%C3%BCcke+Z%C3%BCrich/Grossm%C3%BCnster+Z%C3%BCrich/Quaibr%C3%BCcke+Z%C3%BCrich/B%C3%BCrkliplatz+Z%C3%BCrich/Moxy+Zurich,+Badenerstrasse+537',
+ note:'🚋 <b>Let op:</b> de Moxy ligt ca. 3 km buiten het centrum (bij het Letzigrund-stadion). Neem heen en terug de tram (halte Letzigrund/Freihofstrasse). Stadstrams vallen niet onder je Interrail-pas: koop een ZVV-dagkaart zone 110 (ca. CHF 9) via de SBB-app of de automaat. Het wandeldeel in het centrum is ca. 3 km.',
+ stops:[
+ {name:'Bahnhofstrasse en Paradeplatz',img:'img/9.jpg',time:'ca. 15 min met de tram',leg:'Moxy → Paradeplatz (OV)',url:am('','Paradeplatz%2C%20Z%C3%BCrich','r'),
+  text:'Op de chicste winkelstraat van Europa staan statige 19e-eeuwse panden, juweliers en banken onder de lindebomen. Aan het Paradeplatz zie je het neorenaissance-hoofdkantoor van de Credit Suisse, en bij Confiserie Sprüngli kun je even binnenlopen voor een Luxemburgerli.'},
+ {name:'Lindenhof',img:'img/10.jpg',time:'ca. 8 min lopen',leg:'Paradeplatz → Lindenhof',url:am('','Lindenhof%2C%208001%20Z%C3%BCrich','w'),
+  text:'Dit is een verhoogd plein onder oude lindebomen, op de plek van een Romeins fort. Vanaf de muur heb je hét klassieke uitzicht over de Limmat, de daken van het Niederdorf, het Grossmünster en de ETH. In de lindeschaduw spelen locals schaak op het grote bord.'},
+ {name:'Fraumünster',img:'img/11.jpg',time:'ca. 6 min lopen',leg:'Lindenhof → via de Schipfe → Fraumünster',url:am('','Fraum%C3%BCnster%2C%20M%C3%BCnsterhof%202%2C%208001%20Z%C3%BCrich','w'),
+  text:'Je loopt eerst door de Schipfe, het oudste wijkje aan de rivier. De slanke groene torenspits van de Fraumünster gaat terug tot een abdij uit 853. Binnen zitten de beroemde glas-in-loodramen van Marc Chagall (1970); vooral bij zon gloeit het koor in blauw en groen. Er geldt een kleine toegangsprijs, en vroeg in de avond is de kerk dicht.'},
+ {name:'Münsterbrücke en de Limmat',img:'img/12.jpg',time:'ca. 2 min lopen',leg:'Fraumünster → Münsterbrücke',url:am('','M%C3%BCnsterbr%C3%BCcke%2C%208001%20Z%C3%BCrich','w'),
+  text:'Op deze sierlijke stenen boogbrug uit 1838 sta je midden tussen de twee beroemdste torens van de stad. Onder je stroomt de heldere, groenblauwe Limmat, en met wat geluk zie je zwanen en meeuwen. Het is een van de mooiste fotoplekken van Zürich.'},
+ {name:'Grossmünster en Limmatquai',img:'img/13.jpg',time:'ca. 3 min lopen',leg:'Münsterbrücke → Grossmünster',url:am('','Grossm%C3%BCnster%2C%208001%20Z%C3%BCrich','w'),
+  text:'De romaanse kerk met de dubbele torens is hét symbool van Zürich; hier begon Zwingli de Reformatie. Je kunt de Karlsturm beklimmen (187 treden, kleine toegangsprijs) voor een prachtig uitzicht op het meer en, bij helder weer, de Alpen. Slenter daarna langs de gildehuizen aan het Limmatquai.'},
+ {name:'Quaibrücke, Bürkliplatz en het Zürichsee',img:'img/14.jpg',time:'ca. 8 min lopen langs de rivier',leg:'Grossmünster → Limmatquai → Quaibrücke → Bürkliplatz',url:am('','B%C3%BCrkliplatz%2C%208001%20Z%C3%BCrich','w'),
+  text:'Hier gaat de Limmat over in het meer. Vanaf de brug kijk je zo over het water naar de Alpen; bij zonsondergang (in oktober rond 18:45) is het prachtig. Aan de promenade bij de Bürkliterrasse liggen de rondvaartboten. Wil je meer natuur, loop dan nog 10 minuten langs het meer naar het Arboretum en terug.'},
+ {name:'Terug naar het Moxy',img:null,time:'ca. 20 min met de tram',leg:'Bürkliplatz → Moxy (OV)',url:am('','Moxy%20Zurich%2C%20Badenerstrasse%20537%2C%208048%20Z%C3%BCrich','r'),
+  text:'Vanaf de Bürkliplatz neem je de tram terug naar Letzigrund/Freihofstrasse, vlak bij je hotel.'}
+ ]},salzburg:{
  title:'Wandelroute Salzburg',sub:'Start en eind: Hampton by Hilton Salzburg Messe · architectuur, uitzichten, natuur en de Salzach',
  route:'https://www.google.com/maps/dir/Hampton+by+Hilton+Salzburg+Messe/Mirabellgarten+Salzburg/Kapuzinerkloster+Salzburg/Makartsteg+Salzburg/Getreidegasse+9+Salzburg/Caf%C3%A9+Tomaselli+Salzburg/Salzburger+Dom/Festung+Hohensalzburg/Museum+der+Moderne+M%C3%B6nchsberg/Augustiner+Br%C3%A4u+M%C3%BClln/Hampton+by+Hilton+Salzburg+Messe',
  note:'💶 <b>Let op:</b> de Mönchsberglift (ca. €4) en de vesting met de Festungsbahn (ca. €19) vallen niet onder je dagkaart.',
@@ -56,7 +75,7 @@ const D=(d,city,items)=>({d,city,items});
 const SCHEMA=[
 D('2026-10-14','Amsterdam → nachttrein',['🚆 <b>Nightjet NJ 40421</b> richting Wenen · rijtuig 431, bed 91, Single (incl. ontbijt)','🎫 Boeking 0107 1036 0603 5943 · ticket 2870 4188 2514 6932','🌙 Nacht in de trein']),
 D('2026-10-15','Salzburg',['🚆 Uitstappen in Salzburg 06:46 (NJ 40421)','🏨 Hampton by Hilton Salzburg Messe <span class="ok">geboekt</span>','⭐ Wandelroute Salzburg → zie tab Salzburg']),
-D('2026-10-16','Zürich',['🚆 Railjet Salzburg → Zürich (direct, zonder reservering)','🏨 Moxy Zurich <span class="ok">geboekt</span> (€148,66)']),
+D('2026-10-16','Zürich',['🚆 Railjet Salzburg → Zürich (direct, zonder reservering)','🏨 Moxy Zurich <span class="ok">geboekt</span> (€148,66)','⭐ <a href="?stad=zurich">Wandelroute Zürich</a>']),
 D('2026-10-17','Zürich → Luzern → Interlaken',['🚆 Zürich → Luzern','🚆 <b>Luzern–Interlaken Express PE 2920</b> (±10:06) · 1e klas panorama, rijtuig 7, stoel 320 · ref PYN6JY','🚆 Terug naar Luzern (zonder reservering)','🏨 Renaissance Lucerne']),
 D('2026-10-18','Luzern → Gotthard → Milaan → nachttrein',['⛴️ Boot Luzern → Flüelen 11:12 (50% Interrail-korting, ticket aan boord)','🚆 Gotthard → Lugano','🚆 <b>Frecciarossa FR 9657</b> Milano → Napoli · PNR E253KN','🚆 <b>ICN 1963</b> → Salerno','🌙 Nacht in de trein']),
 D('2026-10-19','Salerno / Amalfi',['🚆 Aankomst Salerno 06:13 (ICN 1963)','⛴️ Veerboot Salerno → Amalfi → Positano → Sorrento (SITA-bus als alternatief)','🏨 Moxy Pompeii (19–21 okt) <span class="ok">geboekt</span>']),
@@ -77,14 +96,15 @@ D('2026-11-02','Amsterdam',['🚆 Aankomst Amsterdam 09:59','🏠 Thuis in Koog 
 const WD=['zo','ma','di','wo','do','vr','za'],MO=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
 const tz=new Date(),today=`${tz.getFullYear()}-${String(tz.getMonth()+1).padStart(2,'0')}-${String(tz.getDate()).padStart(2,'0')}`;
 const view=new URLSearchParams(location.search).get('view');
-const trip=TRIPS[new URLSearchParams(location.search).get('stad')||'salzburg'];
+const stad=new URLSearchParams(location.search).get('stad')||'salzburg';const trip=TRIPS[stad]||TRIPS.salzburg;
+const CITY=`<a href="./">🏰 Salzburg</a><a href="?stad=zurich">🇨🇭 Zürich</a>`;
 if(view==='schema'){document.title='Reisschema';title.textContent='📅 Reisschema Interrail';sub.textContent='14 okt – 2 nov 2026 · 1e klas Global Pass';
-nav.innerHTML='<a href="./">🏰 Salzburg</a>'+SCHEMA.map(x=>`<a href="#d${x.d}">${+x.d.slice(8)} ${MO[+x.d.slice(5,7)-1]}</a>`).join('');
+nav.innerHTML=CITY+SCHEMA.map(x=>`<a href="#d${x.d}">${+x.d.slice(8)} ${MO[+x.d.slice(5,7)-1]}</a>`).join('');
 main.innerHTML=SCHEMA.map(x=>{const dt=new Date(x.d+'T12:00');const c=x.d===today?'today':x.d<today?'past':'';
 return `<section class="day ${c}" id="d${x.d}"><div class="dh"><b>${WD[dt.getDay()]} ${dt.getDate()} ${MO[dt.getMonth()]}${c==='today'?' · vandaag':''}</b><span>${x.city}</span></div><ul>${x.items.map(i=>`<li>${i}</li>`).join('')}</ul></section>`}).join('');
 const t=document.getElementById('d'+today);if(t)setTimeout(()=>t.scrollIntoView({block:'start'}),50);
 }else{document.title='Reisgids – '+trip.title;title.textContent=trip.title;sub.textContent=trip.sub;
-nav.innerHTML='<a href="?view=schema">📅 Reisschema</a>'+trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
+nav.innerHTML='<a href="?view=schema">📅 Reisschema</a>'+CITY+trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
 main.innerHTML=`<div class="note">${trip.note}</div><a class="btn alt" href="${trip.route}">🗺️ Hele route op Google Maps</a><br>`+
  trip.stops.map((s,i)=>`<section class="stop" id="s${i+1}">${s.img?`<img src="${s.img}" alt="${s.name}" loading="lazy">`:''}<div class="c">
  <h2><span class="n">${i+1}</span><b>${s.name}</b></h2><div class="t">🚶 ${s.leg} · ${s.time}</div><p>${s.text}</p>
