@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Reisgids">
-<meta name="theme-color" content="#7a2e1f"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#7a2e1f" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#4a1b12" media="(prefers-color-scheme: dark)"><meta name="color-scheme" content="light dark"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Reisgids</title>
 <style>
 body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#f6f1e7;color:#2b2420;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
@@ -20,6 +20,9 @@ main{padding:12px;max-width:640px;margin:auto}.stop{background:#fff;border-radiu
 .day.today{outline:3px solid #0a7aff}.day.today .dh{background:#0a7aff}.day.today .dh b,.day.today .dh span{color:#fff}
 .day ul{list-style:none;margin:0;padding:10px 16px 14px}.day li{padding:5px 0;font-size:15px;line-height:1.45}.open{color:#b25b00;font-weight:600}.ok{color:#1d7a35;font-weight:600}.past{opacity:.6}
 footer{font-size:12px;color:#777;padding:0 16px 30px;text-align:center}
+@media (prefers-color-scheme:dark){body{background:#141210;color:#ece6dc}header{background:#4a1b12}nav{background:#1f1b18}nav a{background:#2c2622;color:#f0b8a8}
+.stop,.day{background:#221e1b;box-shadow:none}.stop img{background:#333}.t,.day .dh b{color:#f0b8a8}.day .dh{background:#2c2622}.day .dh span{color:#aaa}
+.note{background:#3a321c;color:#ece6dc}.n{background:#a0422c}.btn.alt{background:#555}.open{color:#ffb15c}.ok{color:#5fd27f}footer{color:#999}a{color:#7fb6ff}.btn{color:#fff}}
 </style></head><body>
 <header><h1 id="title"></h1><p id="sub"></p></header><nav id="nav"></nav><main id="main"></main>
 <footer>Foto's: Wikimedia Commons (CC BY-SA / diverse auteurs).</footer>
