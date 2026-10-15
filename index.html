@@ -1,0 +1,58 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Salzburg">
+<meta name="theme-color" content="#7a2e1f"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Reisgids Salzburg</title>
+<style>
+body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#f6f1e7;color:#2b2420;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{background:#7a2e1f;color:#fff;padding:22px 18px 16px}header h1{margin:0;font-size:26px}header p{margin:6px 0 0;opacity:.9;font-size:15px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:#efe6d6;position:sticky;top:0;z-index:2}
+nav a{flex:none;background:#fff;border-radius:16px;padding:6px 12px;text-decoration:none;color:#7a2e1f;font-size:14px;font-weight:600}
+main{padding:12px;max-width:640px;margin:auto}.stop{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:18px;box-shadow:0 2px 8px #0001}
+.stop img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#ddd}.c{padding:14px 16px 16px}
+.stop h2{margin:0 0 4px;font-size:21px}.t{color:#7a2e1f;font-size:14px;font-weight:600;margin-bottom:8px}.stop p{margin:0 0 12px;line-height:1.5;font-size:16px}
+.btn{display:block;text-align:center;background:#0a7aff;color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:14px;border-radius:12px;margin-top:8px}
+.btn.alt{background:#4a4a4a}.note{background:#fff7d6;border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.5;margin-bottom:14px}
+.n{display:inline-block;background:#7a2e1f;color:#fff;border-radius:50%;width:26px;height:26px;text-align:center;line-height:26px;font-size:14px;margin-right:6px}
+footer{font-size:12px;color:#777;padding:0 16px 30px;text-align:center}
+</style></head><body>
+<header><h1 id="title"></h1><p id="sub"></p></header><nav id="nav"></nav><main id="main"></main>
+<footer>Foto's: Wikimedia Commons (CC BY-SA / diverse auteurs).</footer>
+<script>
+// Reisgids-data: voeg nieuwe steden toe aan TRIPS en kies via ?stad=...
+const am=(s,d,f)=>`https://maps.apple.com/?saddr=${s}&daddr=${d}&dirflg=${f}`;
+const H='Schmiedingerstra%C3%9Fe%2046%20Salzburg';
+const TRIPS={salzburg:{
+ title:'Wandelroute Salzburg',sub:'Start en eind: Hampton by Hilton Salzburg Messe · architectuur, uitzichten, natuur en de Salzach',
+ route:'https://www.google.com/maps/dir/Hampton+by+Hilton+Salzburg+Messe/Mirabellgarten+Salzburg/Kapuzinerkloster+Salzburg/Makartsteg+Salzburg/Getreidegasse+9+Salzburg/Caf%C3%A9+Tomaselli+Salzburg/Salzburger+Dom/Festung+Hohensalzburg/Museum+der+Moderne+M%C3%B6nchsberg/Augustiner+Br%C3%A4u+M%C3%BClln/Hampton+by+Hilton+Salzburg+Messe',
+ note:'💶 <b>Let op:</b> de Mönchsberglift (ca. €4) en de vesting met de Festungsbahn (ca. €19) vallen niet onder je dagkaart.',
+ stops:[
+ {name:'Schloss Mirabell en Mirabellgarten',img:'img/1.jpg',time:'ca. 20 min met de bus',leg:'Hampton by Hilton → Mirabellplatz (OV)',url:am(H,'Mirabellplatz%20Salzburg','r'),
+  text:"Mirabell is een barok paleis uit 1606 met de beroemde marmeren Engeltrap. In de tuin vind je bloemperken, fonteinen en het Pegasusbeeld, met de Dom en de vesting in de verte. Hier zong Maria in The Sound of Music 'Do-Re-Mi'."},
+ {name:'Kapuzinerberg',img:'img/2.jpg',time:'ca. 20 min lopen',leg:'Mirabellgarten → Kapuzinerkloster',url:am('Mirabellgarten%20Salzburg','Kapuzinerkloster%20Salzburg','w'),
+  text:'Via de Linzergasse kom je bij een steile trap langs kruiswegkapelletjes naar een bosrijke stadsberg met oude stadsmuren, en vaak zie je er gemzen. Vanaf het uitkijkpunt bij het klooster kijk je zo op de oude stad, de vesting en de Salzach.'},
+ {name:'Makartsteg en Getreidegasse',img:'img/3.jpg',time:'ca. 20 min lopen',leg:'Kapuzinerkloster → Makartsteg → Getreidegasse',url:am('Kapuzinerkloster%20Salzburg','Getreidegasse%209%20Salzburg','w'),
+  text:'Je loopt over de voetgangersbrug vol liefdesslotjes boven de turquoise Salzach. Daarna kom je in de Getreidegasse, met middeleeuwse huizen, smeedijzeren uithangborden en verborgen binnenplaatsjes. Op nummer 9 staat het gele geboortehuis van Mozart.'},
+ {name:'Café Tomaselli (apfelstrudel)',img:'img/4.jpg',time:'ca. 3 min lopen',leg:'Getreidegasse → Café Tomaselli',url:am('Getreidegasse%209%20Salzburg','Caf%C3%A9%20Tomaselli%20Salzburg','w'),
+  text:"Dit is het oudste nog bestaande koffiehuis van Oostenrijk, uit 1700, met houten lambrisering, krantenrekken en obers in het wit. Alle gebak wordt in eigen huis gemaakt, en de apfelstrudel krijgt in reviews vaak 'de beste ooit'. Probeer een plekje op het balkon te krijgen, met uitzicht op de Alter Markt. Een melange erbij en het is perfect. Open tot 19:00."},
+ {name:'Salzburger Dom en Residenzplatz',img:'img/5.jpg',time:'ca. 3 min lopen',leg:'Café Tomaselli → Dom',url:am('Caf%C3%A9%20Tomaselli%20Salzburg','Salzburger%20Dom','w'),
+  text:'De Dom is een vroegbarokke kathedraal uit 1628, met een witmarmeren gevel en een enorme koepel. Mozart werd hier gedoopt. Op de Residenzplatz staat de grootste barokfontein ten noorden van de Alpen. Loop ook even het kerkhof van St. Peter in, met catacomben in de rotswand.'},
+ {name:'Festung Hohensalzburg',img:'img/6.jpg',time:'ca. 5 min lopen naar de Festungsbahn',leg:'Dom → Festungsbahn',url:am('Salzburger%20Dom','Festungsbahn%20Salzburg','w'),
+  text:'Met het kabeltreintje ben je in 1 minuut boven, lopend duurt het ongeveer 20 minuten. Dit is een van de grootste volledig bewaarde burchten van Europa, uit de 11e eeuw. Vanaf de bastions zie je de daken van de stad en de kronkelende Salzach, met daarachter de Alpen.'},
+ {name:'Mönchsberg en Museum der Moderne',img:'img/7.jpg',time:'ca. 30 min lopen',leg:'Vesting → over de Mönchsberg → Museum der Moderne',url:am('Festung%20Hohensalzburg','Museum%20der%20Moderne%20M%C3%B6nchsberg','w'),
+  text:'Je volgt een bospad langs oude verdedigingsmuren. Vanaf het terras van het museum heb je een prachtig uitzicht over de oude stad, de rivier en de Kapuzinerberg. Daarna ga je met de Mönchsberglift in 30 seconden door de rots naar beneden.'},
+ {name:'Augustiner Bräu Mülln',img:'img/8.jpg',time:'ca. 10 min lopen langs de Salzach',leg:'Mönchsberglift → Augustiner Bräu',url:am('M%C3%B6nchsberglift%20Salzburg','Augustiner%20Br%C3%A4u%20M%C3%BClln%20Salzburg','w'),
+  text:'Dit is een kloosterbrouwerij uit 1621, met een biertuin onder kastanjebomen en bier uit stenen kruiken.'},
+ {name:'Terug naar het Hampton by Hilton',img:null,time:'ca. 20 min met de bus',leg:'Augustiner Bräu → hotel (OV)',url:am('Augustiner%20Br%C3%A4u%20M%C3%BClln%20Salzburg',H,'r'),
+  text:'Met je dagkaart neem je de bus terug naar je hotel in Liefering.'}
+ ]}};
+const trip=TRIPS[new URLSearchParams(location.search).get('stad')||'salzburg'];
+document.title='Reisgids – '+trip.title;title.textContent=trip.title;sub.textContent=trip.sub;
+nav.innerHTML=trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
+main.innerHTML=`<div class="note">${trip.note}</div><a class="btn alt" href="${trip.route}">🗺️ Hele route op Google Maps</a><br>`+
+ trip.stops.map((s,i)=>`<section class="stop" id="s${i+1}">${s.img?`<img src="${s.img}" alt="${s.name}" loading="lazy">`:''}<div class="c">
+ <h2><span class="n">${i+1}</span><b>${s.name}</b></h2><div class="t">🚶 ${s.leg} · ${s.time}</div><p>${s.text}</p>
+ <a class="btn" href="${s.url}">📍 Navigeer in Apple Maps</a></div></section>`).join('');
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+</script></body></html>
