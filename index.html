@@ -104,7 +104,7 @@ const CITY=`<a href="./">🏰 Salzburg</a><a href="?stad=zurich">🇨🇭 Züric
 if(view==='schema'){document.title='Reisschema';title.textContent='📅 Reisschema Interrail';sub.textContent='14 okt – 2 nov 2026 · 1e klas Global Pass';
 nav.innerHTML=CITY+SCHEMA.map(x=>`<a href="#d${x.d}">${+x.d.slice(8)} ${MO[+x.d.slice(5,7)-1]}</a>`).join('');
 main.innerHTML=SCHEMA.map(x=>{const dt=new Date(x.d+'T12:00');const c=x.d===today?'today':x.d<today?'past':'';
-return `<section class="day ${c}" id="d${x.d}"><div class="dh"><b>${WD[dt.getDay()]} ${dt.getDate()} ${MO[dt.getMonth()]}${c==='today'?' · vandaag':''}</b><span>${x.city}</span></div><ul>${x.items.map(i=>`<li>${i}</li>`).join('')}</ul></section>`}).join('');
+const G={'2026-10-15':'salzburg','2026-10-16':'zurich'}[x.d];return `<section class="day ${c}" id="d${x.d}" ${G?`onclick="location.href='?stad=${G}'" style="cursor:pointer"`:''}><div class="dh"><b>${WD[dt.getDay()]} ${dt.getDate()} ${MO[dt.getMonth()]}${c==='today'?' · vandaag':''}</b><span>${x.city}${G?' ›':''}</span></div><ul>${x.items.map(i=>`<li>${i}</li>`).join('')}</ul></section>`}).join('');
 const t=document.getElementById('d'+today);if(t)setTimeout(()=>t.scrollIntoView({block:'start'}),50);
 }else{document.title='Reisgids – '+trip.title;title.textContent=trip.title;sub.textContent=trip.sub;
 nav.innerHTML='<a href="?view=schema">📅 Reisschema</a>'+CITY+trip.stops.map((s,i)=>`<a href="#s${i+1}">${i+1}. ${s.name.split(' ')[0]}</a>`).join('');
