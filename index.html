@@ -30,7 +30,47 @@ footer{font-size:12px;color:#777;padding:0 16px 30px;text-align:center}
 // Reisgids-data: voeg nieuwe steden toe aan TRIPS en kies via ?stad=...
 const am=(s,d,f)=>`https://maps.apple.com/?daddr=${d}&dirflg=${f}`;
 const H='Schmiedingerstra%C3%9Fe%2046%20Salzburg';
-const TRIPS={zurich:{
+const TRIPS={interlaken:{
+ title:'Interlaken tussen de treinen',sub:'Start en eind: station Interlaken Ost · 11:54 aankomst, 16:04 terug · bergen, meren en de Aare',
+ route:'https://www.google.com/maps/dir/Interlaken+Ost/Harderbahn+Interlaken/Harder+Kulm/Unterseen+Stadthausplatz/H%C3%B6hematte+Interlaken/Interlaken+Ost',
+ note:'⏱️ <b>Tijdvak ca. 4 uur</b> (11:54–16:04). 🚠 Harderbahn: elk halfuur, retour ca. CHF 44, met Interrail 50% korting (ca. CHF 22). Ben om 15:45 terug op het station.',
+ stops:[
+ {name:'Station Interlaken Ost',img:'img/21.jpg',time:'aankomst 11:54',leg:'Start',url:am('','Interlaken%20Ost','w'),
+  text:'Je stapt uit de panoramatrein midden tussen de Brienzersee en de bergen. Lockers vind je in het station als je bagage bij je hebt.'},
+ {name:'Harderbahn',img:'img/16.jpg',time:'ca. 5 min lopen',leg:'Interlaken Ost → over de Aare → dalstation',url:am('','Harderbahn%2C%20Interlaken','w'),
+  text:'Over de brug over de turquoise Aare loop je naar het dalstation. Het rode kabelspoor klimt in 10 minuten steil door het bos omhoog; ga rechts zitten voor het mooiste zicht.'},
+ {name:'Harder Kulm',img:'img/17.jpg',time:'10 min met de kabelbaan',leg:'Dalstation → Harder Kulm (1322 m)',url:am('','Harder%20Kulm','w'),
+  text:'Vanaf de Zwei-Seen-Steg, een uitkijkbrug boven de afgrond, zie je beide meren tegelijk: de Thunersee en de Brienzersee, met Eiger, Mönch en Jungfrau recht tegenover je. Het restaurant in sprookjesstijl heeft een terras met hetzelfde uitzicht. Trek er ca. 1–1,5 uur voor uit.'},
+ {name:'Langs de Aare',img:'img/20.jpg',time:'ca. 15 min lopen',leg:'Dalstation → Aarepromenade → Unterseen',url:am('','Unterseen%2C%20Stadthausplatz','w'),
+  text:'Het pad langs de rivier volgt het melkachtig groene gletsjerwater tussen de twee meren. Rustig, groen en vol bankjes, met de bergen telkens op de achtergrond.'},
+ {name:'Unterseen oude stad',img:'img/18.jpg',time:'ca. 3 min lopen',leg:'Aare → Stadthausplatz',url:am('','Stadthausplatz%2C%20Unterseen','w'),
+  text:'Het middeleeuwse stadje aan de overkant van de Aare is veel ouder dan Interlaken. Je ziet er houten huizen met diepe daken, de stadskerk met zijn slanke toren en het pleintje rond het Stadthaus.'},
+ {name:'Höhematte en Höheweg',img:'img/19.jpg',time:'ca. 15 min lopen',leg:'Unterseen → Höhematte',url:am('','H%C3%B6hematte%2C%20Interlaken','w'),
+  text:'Dit grote, open grasveld midden in het dorp mag nooit bebouwd worden, zodat je er altijd het onbelemmerde uitzicht op de besneeuwde Jungfrau hebt. Aan de Höheweg staan belle-époque-hotels, zoals het statige Victoria-Jungfrau. Hier landen ook de paragliders.'},
+ {name:'Terug naar Interlaken Ost',img:null,time:'ca. 15 min lopen',leg:'Höheweg → Interlaken Ost',url:am('','Interlaken%20Ost','w'),
+  text:'Je loopt in een rechte lijn over de Höheweg terug naar het station, voor de Luzern–Interlaken Express van 16:04.'}
+ ]},
+luzern:{
+ title:'Avondwandeling Luzern',sub:'Van station Luzern naar het Renaissance Lucerne (Pilatusstrasse 15) · bruggen, de Reuss en het meer',
+ route:'https://www.google.com/maps/dir/Bahnhof+Luzern/Kapellbr%C3%BCcke/Weinmarkt+Luzern/M%C3%A4nnliturm+Luzern/Spreuerbr%C3%BCcke/Jesuitenkirche+Luzern/Renaissance+Lucerne+Hotel,+Pilatusstrasse+15',
+ note:'🌆 Aankomst 17:55. De Museggmauer is tot 19:00 gratis open (t/m 1 nov). Ga er dus vóór 18:45 naartoe. Zonsondergang is rond 18:40, daarna zijn de bruggen en de oude stad prachtig verlicht.',
+ stops:[
+ {name:'Station Luzern, KKL en het meer',img:'img/22.jpg',time:'aankomst 17:55',leg:'Start: Bahnhof Luzern',url:am('','Bahnhof%20Luzern','w'),
+  text:'Naast het station staat het KKL van Jean Nouvel, met zijn enorme zwevende dak boven het water. Loop even naar de kade voor het uitzicht over het Vierwaldstättersee, met de Pilatus en de Rigi op de achtergrond.'},
+ {name:'Kapellbrücke',img:'img/23.jpg',time:'ca. 4 min lopen',leg:'Station → Kapellbrücke',url:am('','Kapellbr%C3%BCcke%2C%20Luzern','w'),
+  text:'Dit is de oudste overdekte houten brug van Europa, uit 1365, met bloembakken en de achthoekige Wasserturm. In de nok hangen 17e-eeuwse driehoekige schilderijen over de geschiedenis van de stad.'},
+ {name:'Weinmarkt en de oude pleinen',img:'img/24.jpg',time:'ca. 4 min lopen',leg:'Kapellbrücke → Kornmarkt → Weinmarkt',url:am('','Weinmarkt%2C%206004%20Luzern','w'),
+  text:'Via de Kornmarkt met het renaissance-raadhuis kom je bij de Weinmarkt. Dit middeleeuwse plein heeft een gotische fontein en gevels vol kleurrijke fresco’s.'},
+ {name:'Museggmauer en Männliturm',img:'img/25.jpg',time:'ca. 10 min lopen (bergop)',leg:'Weinmarkt → Männliturm',url:am('','M%C3%A4nnliturm%2C%20Luzern','w'),
+  text:'Dit is de langste nog intacte stadsmuur van Zwitserland, met negen torens. Klim de Männliturm op voor een panorama over de daken, het meer en de bergen. Tot 19:00 open; daarna zie je de verlichte muur vanaf de stad.'},
+ {name:'Spreuerbrücke',img:'img/26.jpg',time:'ca. 8 min lopen (bergaf)',leg:'Musegg → Spreuerbrücke',url:am('','Spreuerbr%C3%BCcke%2C%20Luzern','w'),
+  text:'Deze tweede houten brug is stiller en authentieker, en heeft een dodendans-schilderijencyclus uit 1626. Je kijkt over de kolkende Reuss en het Nadelwehr, een stuw die al sinds 1860 met de hand wordt bediend.'},
+ {name:'Reussoever en Jesuitenkirche',img:'img/27.jpg',time:'ca. 5 min lopen',leg:'Spreuerbrücke → Jesuitenkirche',url:am('','Jesuitenkirche%2C%20Luzern','w'),
+  text:'Langs de rivier loop je naar de barokke Jesuitenkirche met zijn twee uivormige torens. Vooral in het donker, als de oevers en de Kapellbrücke verlicht zijn, is het een van de mooiste plekken van Luzern.'},
+ {name:'Renaissance Lucerne',img:null,time:'ca. 5 min lopen',leg:'Jesuitenkirche → Pilatusstrasse 15',url:am('','Renaissance%20Lucerne%20Hotel%2C%20Pilatusstrasse%2015%2C%206002%20Luzern','w'),
+  text:'Via de Seebrücke loop je naar je hotel aan de Pilatusstrasse. Let op: de boeking is nog niet bevestigd, dus controleer die.'}
+ ]},
+zurich:{
  title:'Wandelroute Zürich',sub:'Start en eind: Zürich HB (bagage in een kluisje) · architectuur, uitzichten, de Limmat en het meer',
  route:'https://www.google.com/maps/dir/Z%C3%BCrich+HB/Paradeplatz+Z%C3%BCrich/Lindenhof+Z%C3%BCrich/Fraum%C3%BCnster+Z%C3%BCrich/M%C3%BCnsterbr%C3%BCcke+Z%C3%BCrich/Grossm%C3%BCnster+Z%C3%BCrich/Quaibr%C3%BCcke+Z%C3%BCrich/B%C3%BCrkliplatz+Z%C3%BCrich/Z%C3%BCrich+HB',
  note:'🚶 <b>Hele route te voet</b>, ca. 4 km vanaf en naar Zürich HB. 🚋 Daarna met de tram naar je hotel: stadstrams vallen niet onder je Interrail-pas, koop een ZVV-ticket zone 110 via de SBB-app of automaat.',
@@ -79,10 +119,10 @@ const TRIPS={zurich:{
 
 const D=(d,city,items)=>({d,city,items});
 const SCHEMA=[
-D('2026-10-14','Amsterdam → nachttrein',['🚆 <b>Nightjet NJ 40421</b> richting Wenen · rijtuig 431, bed 91, Single (incl. ontbijt)','🎫 Boeking 0107 1036 0603 5943 · ticket 2870 4188 2514 6932','🌙 Nacht in de trein']),
+D('2026-10-14','Amsterdam → nachttrein',['🚆 <b>Nightjet NJ 40421</b> richting Wenen · rijtuig 431, bed 91, Single (incl. ontbijt)','🎫 Boeking 1955 0056 6576 9066 · ticket 2870 4188 2514 6932','🌙 Nacht in de trein']),
 D('2026-10-15','Salzburg',['🚆 Uitstappen in Salzburg 06:46 (NJ 40421)','🏨 Hampton by Hilton Salzburg Messe <span class="ok">geboekt</span>','⭐ Wandelroute Salzburg → zie tab Salzburg']),
 D('2026-10-16','Zürich',['🚆 Railjet Salzburg → Zürich (direct, zonder reservering)','🧳 Bagage in kluisje op Zürich HB','🏨 Moxy Zurich <span class="ok">geboekt</span> (€148,66)','⭐ <a href="?stad=zurich">Wandelroute Zürich</a> (vanaf Zürich HB)','🚋 Daarna tram naar het Moxy']),
-D('2026-10-17','Zürich → Luzern → Interlaken',['🚆 Zürich → Luzern','🚆 <b>Luzern–Interlaken Express PE 2920</b> (±10:06) · 1e klas panorama, rijtuig 7, stoel 320 · ref PYN6JY','🚆 Terug naar Luzern (zonder reservering)','🏨 Renaissance Lucerne']),
+D('2026-10-17','Zürich → Luzern → Interlaken',['🚋 Tram 2 vanaf Letzigrund ±08:31 → Zürich HB (of S-Bahn; ZVV-ticket nodig)','🚆 <b>IR 70</b> Zürich HB 09:07 (spoor 6) → Luzern 09:51','🚆 <b>Luzern–Interlaken Express PE 2920</b> Luzern 10:06 (spoor 13) → Interlaken Ost 11:54 · 1e klas panorama, rijtuig 7, stoel 320 · ref PYN6JY (CHF 16)','⭐ <a href="?stad=interlaken" class="btn" style="margin:6px 0">🏔️ Gids Interlaken</a>','🚆 <b>Luzern–Interlaken Express</b> Interlaken Ost 16:04 (spoor 4) → Luzern 17:55 · zonder reservering','⭐ <a href="?stad=luzern" class="btn" style="margin:6px 0">🌉 Gids Luzern (avond)</a>','🏨 Renaissance Lucerne, Pilatusstrasse 15 <span class="open">boeking controleren</span>']),
 D('2026-10-18','Luzern → Gotthard → Milaan → nachttrein',['⛴️ Boot Luzern → Flüelen 11:12 (50% Interrail-korting, ticket aan boord)','🚆 Gotthard → Lugano','🚆 <b>Frecciarossa FR 9657</b> Milano → Napoli · PNR E253KN','🚆 <b>ICN 1963</b> → Salerno','🌙 Nacht in de trein']),
 D('2026-10-19','Salerno / Amalfi',['🚆 Aankomst Salerno 06:13 (ICN 1963)','⛴️ Veerboot Salerno → Amalfi → Positano → Sorrento (SITA-bus als alternatief)','🏨 Moxy Pompeii (19–21 okt) <span class="ok">geboekt</span>']),
 D('2026-10-20','Pompeii / Amalfikust',['🏨 Moxy Pompeii','📝 <span class="open">Herinnering: Sicilië-hotels boeken</span>']),
@@ -103,7 +143,7 @@ const WD=['zo','ma','di','wo','do','vr','za'],MO=['jan','feb','mrt','apr','mei',
 const tz=new Date(),today=`${tz.getFullYear()}-${String(tz.getMonth()+1).padStart(2,'0')}-${String(tz.getDate()).padStart(2,'0')}`;
 const view=new URLSearchParams(location.search).get('view');
 const stad=new URLSearchParams(location.search).get('stad')||'salzburg';const trip=TRIPS[stad]||TRIPS.salzburg;
-const CITY=`<a href="./">🏰 Salzburg</a><a href="?stad=zurich">🇨🇭 Zürich</a>`;
+const CITY=`<a href="./">🏰 Salzburg</a><a href="?stad=zurich">🇨🇭 Zürich</a><a href="?stad=interlaken">🏔️ Interlaken</a><a href="?stad=luzern">🌉 Luzern</a>`;
 if(view==='schema'){document.title='Reisschema';title.textContent='📅 Reisschema Interrail';sub.textContent='14 okt – 2 nov 2026 · 1e klas Global Pass';
 nav.innerHTML=CITY+SCHEMA.map(x=>`<a href="#d${x.d}">${+x.d.slice(8)} ${MO[+x.d.slice(5,7)-1]}</a>`).join('');
 main.innerHTML=SCHEMA.map(x=>{const dt=new Date(x.d+'T12:00');const c=x.d===today?'today':x.d<today?'past':'';
