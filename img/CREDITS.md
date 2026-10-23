@@ -21,4 +21,28 @@ img/100.jpg | Catania, Villa Bellini 2024b.jpg | CC BY-SA 4.0 | Cayambe
 img/101.jpg | La stazione di Catania Centrale, vista dal lato stradale.jpg | CC BY-SA 4.0 | VincentLR
 img/102.jpg | 4551 - Mercato di Ortigia, Siracusa - Foto Giovanni Dall'Orto, 20 marzo 2014.jpg | Attribution | Giovanni Dall'Orto
 
+img/103.jpg | Colosseum of Rome and Roman forum.jpg | CC0 | Wilfredor
+img/104.jpg | Roma - San Pietro in Vincoli 8576.jpg | Public domain | Phyrexian
+img/105.jpg | Roma - 2016-05-23 - Basilica di Santa Maria Maggiore - 2957.jpg | CC BY 4.0 | Pierre-Selim Huard
+img/106.jpg | Roma termini 01.jpg | CC BY-SA 4.0 | Hide1228
+img/107.jpg | Piazza Walther Bolzano Italy - panoramio.jpg | CC BY 3.0 | Hiroki Ogawa
+img/108.jpg | Via dei Portici Bolzano Italy - panoramio.jpg | CC BY 3.0 | Hiroki Ogawa
+img/109.jpg | Duomo di bolzano, 01.JPG | CC BY-SA 3.0 | sailko
+img/110.jpg | Bozen Maretsch Ostansicht 2021.jpg | CC BY-SA 4.0 | ManfredK
+img/111.jpg | 20240225 Innsbruck Hauptbahnhof.jpg | CC BY 4.0 | Flocci Nivis
+img/112.jpg | Maria-Theresien-Straße, Innsbruck.JPG | CC0 | Aschroet
+img/113.jpg | Goldenes Dachl from Innsbruck 2.jpg | CC0 | Wilfredor
+img/114.jpg | Innsbruck- Innpromenade und Nordkette, verschneit - LABW - Staatsarchiv Freiburg W 134 Nr. 100468a.jpg | CC BY 4.0 | Willy Pragher
+img/115.jpg | 20240225 Hofgarten Innsbruck.jpg | CC BY 4.0 | Flocci Nivis
+img/116.jpg | Alte Mainbrucke in Wurzburg 01.jpg | CC BY-SA 4.0 | Krzysztof Golik
+img/117.jpg | Wurzburg Marienberg Fortress on the Main in Würzburg.jpg | CC BY 4.0 | Pierre André Leclercq
+img/118.jpg | Residenz Würzburg, View from Eastern Part of Hofgarten 20131227 6.jpg | CC BY-SA 3.0 | DXR
+img/119.jpg | Dom Wuerzburg.jpg | Public domain | Christian Horvat, modified by xavax (perspective).
+img/120.jpg | Alte Brücke Heidelberg von Nordwesten.jpg | CC BY-SA 4.0 | Stephan van Helden
+img/121.jpg | Heidelberg Hauptstraße 29.jpg | CC BY 2.0 | Ulises Estrada
+img/122.jpg | GER Heidelberg, Marktplatz 002.jpg | CC BY-SA 4.0 | -wuppertaler
+img/123.jpg | Schlangenweg in Heidelberg 2.jpg | CC BY-SA 4.0 | Stephan van Helden
+img/124.jpg | Blick vom Aussichtspsunkt am Schlangenweg auf die Altstadt Heidelberg.jpg | CC BY-SA 4.0 | Stephan van Helden
+img/125.jpg | Heidelberg-Schloß.JPG | CC BY-SA 3.0 | Pumuckel42 (Reinhard Wolf) at de:Wikipedia
+
 route_*.png: kaarten © OpenStreetMap-bijdragers.
