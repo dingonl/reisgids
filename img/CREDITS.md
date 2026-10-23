@@ -19,5 +19,6 @@ img/98.jpg | Catania anfiteatro romano2423.jpg | CC BY-SA 3.0 |
 img/99.jpg | Plaia-Catania (16858764168).jpg | CC BY-SA 2.0 | andrea
 img/100.jpg | Catania, Villa Bellini 2024b.jpg | CC BY-SA 4.0 | Cayambe
 img/101.jpg | La stazione di Catania Centrale, vista dal lato stradale.jpg | CC BY-SA 4.0 | VincentLR
+img/102.jpg | 4551 - Mercato di Ortigia, Siracusa - Foto Giovanni Dall'Orto, 20 marzo 2014.jpg | Attribution | Giovanni Dall'Orto
 
 route_*.png: kaarten © OpenStreetMap-bijdragers.
