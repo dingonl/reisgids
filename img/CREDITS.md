@@ -44,5 +44,18 @@ img/122.jpg | GER Heidelberg, Marktplatz 002.jpg | CC BY-SA 4.0 | -wuppertaler
 img/123.jpg | Schlangenweg in Heidelberg 2.jpg | CC BY-SA 4.0 | Stephan van Helden
 img/124.jpg | Blick vom Aussichtspsunkt am Schlangenweg auf die Altstadt Heidelberg.jpg | CC BY-SA 4.0 | Stephan van Helden
 img/125.jpg | Heidelberg-Schloß.JPG | CC BY-SA 3.0 | Pumuckel42 (Reinhard Wolf) at de:Wikipedia
+img/126.jpg | Messina Strait.jpg | CC BY 2.0 | Jeroen P from The New Forest, United Kingdom (Great Britain)
+img/127.jpg | Piazza del Popolo in Rome (1).jpg | CC BY-SA 4.0 | Krzysztof Golik
+img/128.jpg | Rome Pincio Terrace (52594247196).jpg | CC BY 2.0 | Jorge Franganillo
+img/129.jpg | Laghetto and Tempio di Esculapio in Villa Borghese 04.jpg | CC BY-SA 4.0 | Krzysztof Golik
+img/130.jpg | Spanish Steps 2014.jpg | CC0 | Perituss
+img/131.jpg | Fontaine Trevi - Rome.jpg | CC0 | Wilfredor
+img/132.jpg | Rome Pantheon facade and Piazza della Rotonda.jpg | CC BY-SA 4.0 | Nicholas Hartmann
+img/133.jpg | Piazza Navona 1.jpg | CC BY-SA 3.0 | Myrabella
+img/134.jpg | 2016 Piazza Campo de' Fiori 01.jpg | CC BY-SA 4.0 | Jordiferrer
+img/135.jpg | Santa Maria in Trastevere - panoramio.jpg | CC BY-SA 3.0 | trolvag
+img/136.jpg | 20110327 Roma - Gianicolo 006.jpg | CC BY-SA 3.0 | Amaunet
+img/137.jpg | St Peter's Square, Vatican City - April 2007.jpg | CC BY-SA 3.0 | Diliff
+img/138.jpg | Castel Sant'Angelo at dusk, Rome, Italy.jpg | CC0 | Jebulon
 
 route_*.png: kaarten © OpenStreetMap-bijdragers.
