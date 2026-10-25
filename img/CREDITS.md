@@ -57,5 +57,8 @@ img/135.jpg | Santa Maria in Trastevere - panoramio.jpg | CC BY-SA 3.0 | trolvag
 img/136.jpg | 20110327 Roma - Gianicolo 006.jpg | CC BY-SA 3.0 | Amaunet
 img/137.jpg | St Peter's Square, Vatican City - April 2007.jpg | CC BY-SA 3.0 | Diliff
 img/138.jpg | Castel Sant'Angelo at dusk, Rome, Italy.jpg | CC0 | Jebulon
+img/139.jpg | Interior of St. Peter's Basilica 3.jpg | CC BY-SA 3.0 | Wknight94
+img/140.jpg | Roma metro A Cornelia.jpg | CC BY-SA 4.0 | Blackcat
+img/141.jpg | Roma Termini - Concourse 01.jpg | CC0 | Mint0ri
 
 route_*.png: kaarten © OpenStreetMap-bijdragers.
